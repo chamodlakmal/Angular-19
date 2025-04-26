@@ -1,0 +1,65 @@
+<div class="container py-4">
+	<h2>Angular 19 + Firebase Todo App</h2>
+
+	<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+		<input type="text" formControlName="task" placeholder="Enter a task" class="form-control mt-4"
+			[class.is-invalid]="todoForm.get('task')?.invalid && todoForm.get('task')?.touched" />
+		<div class="text-danger mb-4">
+			@if (todoForm.get('task')?.errors?.['required']&&todoForm.get('task')?.touched) {
+			Task is required
+			}
+
+			@if (todoForm.get('task')?.errors?.['minlength']&&todoForm.get('task')?.touched) {
+			Task must be at least {{ todoForm.get('task')?.errors?.['minlength'].requiredLength }} characters long
+			}
+
+		</div>
+
+		<button [disabled]="todoForm.invalid" class="btn btn-primary">{{selectedTodo()?'Update':'Add'}}</button>
+		@if(selectedTodo()) {
+		<button class="btn btn-info" (click)="cancelEdit()">Cancel Edit</button>
+		}
+	</form>
+
+	<div class="mt-4">
+		@if(successMessage()){
+		<div class="alert alert-success">
+			{{successMessage()}}
+		</div>
+		}
+		@if(errorMessage()){
+		<div class="alert alert-danger">
+			{{errorMessage()}}
+		</div>
+		}
+	</div>
+
+	<div class="mt-4">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Task</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (todo of todos(); track todo.id) {
+				<tr>
+					<td>{{todo.task}}</td>
+					<td>
+						<div class="btn-group">
+							<button class="btn btn-warning" (click)="onEdit(todo)">Edit</button>
+							<button class="btn btn-danger" (click)="onDelete(todo.id!)">Delete</button>
+						</div>
+					</td>
+				</tr>
+				}@empty {
+				<tr>
+					<td colspan="2" class="text-center">No tasks available</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+
+	</div>
+</div>
