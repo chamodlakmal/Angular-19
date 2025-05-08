@@ -1,0 +1,12 @@
+<div class="flex w-full flex-col items-center p-3">
+  @if (user$ | async) {
+    <div class="flex w-full justify-end">
+      <button mat-stroked-button (click)="logout()">Logout</button>
+    </div>
+  }
+  <app-logo />
+  <mat-card appearance="outlined" class="mt-4">
+    <mat-card-header class="justify-center">Home</mat-card-header>
+    <mat-card-content>This is firebase auth app.</mat-card-content>
+  </mat-card>
+</div>
