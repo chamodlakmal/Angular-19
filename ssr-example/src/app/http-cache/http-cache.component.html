@@ -1,0 +1,27 @@
+<h2>Posts</h2>
+
+<button (click)="getPosts()">Get Posts</button>
+<button (click)="addPost()">Add Post</button>
+
+@if(singlePost$ | async; as post){
+<div>{{ post.title }}</div>
+}
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(post of posts$ | async ; track post.id){
+    <tr>
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.body }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
