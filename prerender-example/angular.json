@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ssr-example": {
+    "prerender-example": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ssr-example",
+            "outputPath": "dist/prerender-example",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -27,7 +27,9 @@
             "styles": ["src/styles.css"],
             "scripts": [],
             "server": "src/main.server.ts",
-            "outputMode": "server",
+            "prerender": {
+              "routesFile": "routes.txt"
+            },
             "ssr": {
               "entry": "src/server.ts"
             }
@@ -60,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ssr-example:build:production"
+              "buildTarget": "prerender-example:build:production"
             },
             "development": {
-              "buildTarget": "ssr-example:build:development"
+              "buildTarget": "prerender-example:build:development"
             }
           },
           "defaultConfiguration": "development"

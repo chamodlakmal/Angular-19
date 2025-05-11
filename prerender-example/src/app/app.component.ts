@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpCacheComponent } from './http-cache/http-cache.component';
-import { ServerCompatibleComponent } from './server-compatible/server-compatible.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,5 +8,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'ssr-example';
+  title = 'prerender-example';
 }
