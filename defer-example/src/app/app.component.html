@@ -1,0 +1,99 @@
+<app-home></app-home>
+<!--<div style="height: 400px; border: 1px solid black">
+  @defer(on viewport) {
+  <app-large-component></app-large-component>
+  } @loading (minimum 500ms) {
+  <p>Fetching...</p>
+  } @placeholder {
+  <p>Loading...</p>
+  }@error {
+  <p>Something went wrong!</p>
+  }
+</div>
+<div style="height: 400px; border: 1px solid black">
+  @defer(on viewport) {
+  <app-large-component></app-large-component>
+  } @loading (minimum 500ms) {
+  <p>Fetching...</p>
+  } @placeholder {
+  <p>Loading...</p>
+  }@error {
+  <p>Something went wrong!</p>
+  }
+</div>
+<div style="height: 400px; border: 1px solid black">
+  @defer(on viewport) {
+  <app-large-component></app-large-component>
+  } @loading (minimum 500ms) {
+  <p>Fetching...</p>
+  } @placeholder {
+  <p>Loading...</p>
+  }@error {
+  <p>Something went wrong!</p>
+  }
+</div>
+@defer (on viewport(triggerElement)) {
+<app-trigger></app-trigger>
+}
+<h1 #triggerElement>Sample Text</h1>
+<div style="height: 400px; border: 1px solid black">
+  @defer(on viewport) {
+  <app-large-component></app-large-component>
+  } @loading (minimum 500ms) {
+  <p>Fetching...</p>
+  } @placeholder {
+  <p>Loading...</p>
+  }@error {
+  <p>Something went wrong!</p>
+  }
+</div>-->
+
+<!--@defer(on interaction) {
+<app-large-component></app-large-component>
+} @loading (minimum 500ms) {
+<p>Fetching...</p>
+} @placeholder {
+<p>Loading...</p>
+}@error {
+<p>Something went wrong!</p>
+}-->
+
+<!--@defer(on hover) {
+<app-large-component></app-large-component>
+} @loading (minimum 500ms) {
+<p>Fetching...</p>
+} @placeholder {
+<p>Loading...</p>
+}@error {
+<p>Something went wrong!</p>
+}-->
+
+<!--@defer(on immediate) {
+<app-large-component></app-large-component>
+} @loading (minimum 500ms) {
+<p>Fetching...</p>
+} @placeholder {
+<p>Loading...</p>
+}@error {
+<p>Something went wrong!</p>
+}-->
+
+<!--@defer(on timer(3000ms)) {
+<app-large-component></app-large-component>
+} @loading (minimum 500ms) {
+<p>Fetching...</p>
+} @placeholder {
+<p>Loading...</p>
+}@error {
+<p>Something went wrong!</p>
+}-->
+
+@defer(on interaction; prefetch on idle) {
+<app-large-component></app-large-component>
+} @loading (minimum 500ms) {
+<p>Fetching...</p>
+} @placeholder {
+<p>Loading...</p>
+}@error {
+<p>Something went wrong!</p>
+}
