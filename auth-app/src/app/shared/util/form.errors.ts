@@ -11,9 +11,9 @@ export class FormValidationError {
     } else if (ctrl.hasError('email')) {
       return `${capitalizedName} is not a valid email`;
     } else if (ctrl.hasError('minlength')) {
-      return `${capitalizedName} must be at least ${ctrl.errors?.['minlength'].requiredLength} characters long`;
+      return `${capitalizedName} must be at least ${ctrl.getError('minlength').requiredLength} characters long`;
     } else if (ctrl.hasError('maxlength')) {
-      return `${capitalizedName} must be at most ${ctrl.errors?.['maxlength'].requiredLength} characters long`;
+      return `${capitalizedName} must be at most ${ctrl.getError('maxlength').requiredLength} characters long`;
     } else {
       return `${capitalizedName} has error`;
     }
