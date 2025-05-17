@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode() ? "Edit" : "Add" }} Product</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        [class.is-invalid]="isFieldInvalid('name')"
+      />
+      @if(isFieldInvalid('name')) {
+      <div class="invalid-feedback">Name is required</div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        formControlName="description"
+        [class.is-invalid]="isFieldInvalid('description')"
+      ></textarea>
+      @if(isFieldInvalid('description')) {
+      <div class="invalid-feedback">Description is required</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        formControlName="price"
+        [class.is-invalid]="isFieldInvalid('price')"
+      />
+      @if(isFieldInvalid('price')) {
+      <div class="invalid-feedback">Price is required</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity</label>
+      <input
+        type="number"
+        class="form-control"
+        id="quantity"
+        formControlName="quantity"
+        [class.is-invalid]="isFieldInvalid('quantity')"
+      />
+      @if(isFieldInvalid('quantity')) {
+      <div class="invalid-feedback">Quantity is required</div>
+      }
+    </div>
+
+    <div class="d-flex gap-2">
+      <button
+        type="submit"
+        [disabled]="productForm.invalid"
+        class="btn btn-primary"
+      >
+        {{ isEditMode() ? "Edit" : "Create" }} Product
+      </button>
+      <button type="button" (click)="onCancel()" class="btn btn-secondary">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

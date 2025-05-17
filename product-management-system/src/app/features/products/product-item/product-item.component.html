@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">{{ product.description }}</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="h5">{{ product.price }}</span>
+      <span class="badge bg-secondary">Stock : {{ product.quantity }}</span>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-primary" [routerLink]="['/products', product.id]">
+        View
+      </button>
+      <button
+        class="btn btn-outline-primary"
+        [routerLink]="['/products', product.id, 'edit']"
+      >
+        Edit
+      </button>
+      <button class="btn btn-outline-danger" (click)="delete.emit(product.id)">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-item-center mb-4">
+    <h2>Products</h2>
+    <button class="btn btn-primary" [routerLink]="'/product/new'">
+      Add New Product
+    </button>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for(product of products$ | async; track product.id){
+    <div class="col">
+      <app-product-item
+        [product]="product"
+        (delete)="onDelete($event)"
+      ></app-product-item>
+    </div>
+    }@empty {
+    <div class="col">
+      <p>No products available.</p>
+    </div>
+    }
+  </div>
+</div>
