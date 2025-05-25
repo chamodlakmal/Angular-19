@@ -1,0 +1,9 @@
+<h2>NgRx Counter</h2>
+<h3>Current Count : {{ count$ | async }}</h3>
+
+<button (click)="increment()">Increment</button>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset</button>
+
+<input type="text" [(ngModel)]="amount" placeholder="Enter amount" />
+<button (click)="incrementByAmount()">Increment By Amount</button>
