@@ -2,32 +2,14 @@
   "expenses": [
     {
       "amount": 1000,
-      "date": "2025-05-15",
-      "category": {
-        "name": "Utilities",
-        "code": "Utilities"
-      },
-      "paymentMethod": {
-        "name": "Credit Card",
-        "code": "Credit Card"
-      },
-      "description": "test description",
-      "tags": [
-        "test tag"
-      ],
-      "notes": "test note",
-      "id": "c9d6"
-    },
-    {
-      "amount": 1000,
       "date": "2025-04-16",
       "category": {
         "name": "Transport",
         "code": "Transport"
       },
       "paymentMethod": {
-        "name": "Cash",
-        "code": "Cash"
+        "name": "Bank Transfer",
+        "code": "Bank Transfer"
       },
       "description": "test",
       "tags": [],
@@ -135,6 +117,22 @@
         "code": "Cash"
       },
       "description": "test",
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "id": "d12d",
+      "amount": 250,
+      "date": "2025-05-18",
+      "category": {
+        "name": "Other",
+        "code": "Other"
+      },
+      "paymentMethod": {
+        "name": "Other",
+        "code": "Other"
+      },
+      "description": "test ",
       "tags": [],
       "notes": ""
     }
