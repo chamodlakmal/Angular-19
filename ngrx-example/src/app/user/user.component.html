@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>User List</h2>
+  <button class="btn btn-primary" (click)="refreshUsers()">
+    Refresh Users
+  </button>
+
+  @if (loading$ | async) {
+  <div>Loading Users</div>
+  } @if( error$ | async) {
+  <div class="alert alert-danger">Error: {{ error$ | async }}</div>
+  }
+
+  <ul class="list-group mt-3">
+    @for (user of users$ | async; track user.id) {
+    <li class="list-group-item">
+      <h5>{{ user.name }}</h5>
+      <p>Email: {{ user.email }}</p>
+      <p>Username: {{ user.username }}</p>
+    </li>
+    }@empty {
+    <li class="list-group-item">
+      <p>No users found.</p>
+    </li>
+    }
+  </ul>
+</div>
