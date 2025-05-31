@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Search Users</h2>
+  </div>
+  <div class="card-body">
+    <div class="mb-4">
+      <label for="searchQuery" class="form-label"
+        >Search by name of email</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="searchQuery"
+        placeholder="Start typing to search..."
+        [(ngModel)]="searchText"
+        (input)="onSearchInput()"
+      />
+      <small class="form-text text-muted">
+        Results will update automatically as you type.
+      </small>
+    </div>
+    @if(users.isLoading()){
+    <app-loading-spinner [message]="'Searching...'"></app-loading-spinner>
+    }@else if(users.error()){
+    <app-error-alert
+      [message]="getErrorMessage(users.error())"
+    ></app-error-alert>
+    }@else if(users.value()?.length===0){
+    <div class="alert alert-info" role="alert">No users found.</div>
+    }@else {
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(user of users.value(); track user.id) {
+        <tr>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-outline-primary"
+              [routerLink]="['../', user.id]"
+            >
+              View Details
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    }
+  </div>
+</div>

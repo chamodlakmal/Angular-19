@@ -1,0 +1,95 @@
+<div class="mb-3">
+  <a routerLink="/users" class="btn btn-outline-primary">
+    <i class="bi bi-arrow-left me-2"></i>Back to Users
+  </a>
+</div>
+
+@if(user.isLoading()){
+<app-loading-spinner
+  [message]="'Loading user details...'"
+></app-loading-spinner>
+}@else if(user.error()){
+<app-error-alert [message]="getErrorMessage(user.error())"></app-error-alert>
+}@else {
+<div class="card mb-4">
+  <div class="card-header">
+    <h2>{{ user.value()?.name }}</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Contact Information</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Email:</strong>{{ user.value()?.email }}
+          </li>
+          <li class="list-group-item">
+            <strong>Phone:</strong>{{ user.value()?.phone }}
+          </li>
+          <li class="list-group-item">
+            <strong>Website:</strong>{{ user.value()?.website }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>Address</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            {{ user.value()?.address?.street }},
+            {{ user.value()?.address?.suite }}
+          </li>
+          <li class="list-group-item">
+            {{ user.value()?.address?.city }},
+            {{ user.value()?.address?.zipcode }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-4">
+      <h4>Company</h4>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.value()?.company?.name }}</h5>
+          <p class="card-text">{{ user.value()?.company?.catchPhrase }}</p>
+          <p class="card-text">{{ user.value()?.company?.bs }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-5">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h3>Posts by {{ user.value()?.name }}</h3>
+    <button class="btn btn-outline-primary" (click)="posts.reload()">
+      <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+    </button>
+  </div>
+  <div class="card-body">
+    @if(posts.isLoading()){
+    <app-loading-spinner [message]="'Loading posts...'"></app-loading-spinner>
+    }@else if(posts.error()){
+    <app-error-alert
+      [message]="getErrorMessage(posts.error())"
+    ></app-error-alert>
+    }@else if(posts.value()?.length === 0){
+    <div class="alert alert-info" role="alert">
+      No posts found for this user.
+    </div>
+    }@else {
+    <div class="row">
+      @for(post of posts.value();track post.id){
+      <div class="col-md-6 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.body }}</p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>
+}

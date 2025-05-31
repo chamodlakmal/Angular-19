@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center my-4">
+  <div
+    class="spinner-border text-primary"
+    role="status"
+    [ngClass]="{
+      'spinner-border-sm': size === 'sm'
+    }"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  @if (message) {
+  <span class="ms-2">{{ message }}</span>
+  }
+</div>
