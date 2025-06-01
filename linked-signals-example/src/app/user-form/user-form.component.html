@@ -1,0 +1,11 @@
+<form>
+  <div>
+    <label>Username</label>
+    <input [value]="editUsername().trim()" (input)="updateUsername($event)" />
+  </div>
+  <div>Current Value : {{ editUsername() }}</div>
+  <div>Original Value : {{ username() }}</div>
+
+  <button type="button" (click)="forceRefresh()">Reset</button>
+  <button type="button" (click)="saveChanges()">Save</button>
+</form>

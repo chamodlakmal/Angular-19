@@ -1,0 +1,6 @@
+<h2>Server User : {{ serverUser() | json }}</h2>
+<h2>Edited User : {{ editableUser() | json }}</h2>
+
+<button (click)="updateName()">Update Name</button>
+<button (click)="updateLastLogin()">Update Last Login</button>
+<button (click)="saveChanges()">Save</button>
