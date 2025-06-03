@@ -1,0 +1,7 @@
+@if(isLoading()){
+<p>Loading....</p>
+} @for (todo of todos(); track todo.id) {
+<pre>{{ todo | json }}</pre>
+} @if(error()){
+<pre>{{ error() | json }}</pre>
+}

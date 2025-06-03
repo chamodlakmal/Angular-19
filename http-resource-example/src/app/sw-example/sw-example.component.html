@@ -1,0 +1,13 @@
+<p>sw-example works!</p>
+
+<input
+  type="text"
+  placeholder="Search todos..."
+  (input)="onValueChanged($event)"
+/>
+
+@if(vehiclesResource.isLoading()){
+<p>Loading vehicles...</p>
+} @for (vehicle of vehicles(); track $index) {
+<pre>{{ vehicle | json }}</pre>
+}

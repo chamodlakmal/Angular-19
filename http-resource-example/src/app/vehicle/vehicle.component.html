@@ -1,0 +1,15 @@
+<h1>Vehicle List</h1>
+
+<input
+  type="text"
+  placeholder="Search todos..."
+  (input)="onValueChanged($event)"
+/>
+
+<button (click)="vehiclesResource.reload()">Refresh</button>
+
+@if(vehiclesResource.isLoading()){
+<p>Loading vehicles...</p>
+} @for (vehicle of vehicles(); track $index) {
+<pre>{{ vehicle | json }}</pre>
+}
